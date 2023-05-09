@@ -1,3 +1,5 @@
+
+
 class Round
   attr_reader :deck, :turns, :turn_num
   
@@ -27,7 +29,7 @@ class Round
 
   def number_correct_by_category(category)
     correct_guesses_by_category = @turns.count do |turn|
-      turn.correct? == true AND turn.card.category == category
+      turn.correct? == true and turn.card.category == category
     end
     correct_guesses_by_category
   end
