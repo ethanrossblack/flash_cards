@@ -35,10 +35,18 @@ class Round
   end
 
   def percent_correct
-    ((number_correct / @turns.count).to_f * 100).round(1)
+    if @turn_num == 0
+      0.0
+    else
+      (number_correct / @turn_num.to_f * 100).round(1)
+    end
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category) / @turns.count).to_f * 100).round(1)
+    if @turn_num == 0
+      0.0
+    else    
+      (number_correct_by_category(category) / @turn_num.to_f * 100).round(1)
+    end
   end
 end
