@@ -14,7 +14,7 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, @deck[@turn_num])
+    turn = Turn.new(guess, current_card)
     @turns << turn
     @turn_num += 1
     turn
@@ -35,10 +35,10 @@ class Round
   end
 
   def percent_correct
-    ((self.number_correct / @deck.count) * 100).round(1)
+    ((number_correct / @turns.count).to_f * 100).round(1)
   end
 
   def percent_correct_by_category(category)
-    ((self.number_correct_by_category(category) / @deck.count) * 100).round(1)
+    ((number_correct_by_category(category) / @turns.count).to_f * 100).round(1)
   end
 end
