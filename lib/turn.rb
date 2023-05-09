@@ -11,7 +11,7 @@ class Turn
   end
 
   def feedback
-    @guess == card.answer ? "Correct." : "Incorrect"
+    @guess == card.answer ? "Correct!" : "Incorrect."
   end
 end
 
