@@ -1,22 +1,18 @@
-
-
 class Round
-  attr_reader :deck, :turns, :turn_num
+  attr_reader :deck, :turns
   
   def initialize(deck)
     @deck = deck
     @turns = []
-    @turn_num = 0
   end
 
   def current_card
-    @deck.cards[@turn_num]
+    @deck.cards[@turns.length]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
-    @turn_num += 1
     turn
   end
 
@@ -35,10 +31,10 @@ class Round
   end
 
   def percent_correct
-    if @turn_num == 0
+    if @turns.length == 0
       0.0
     else
-      (number_correct / @turn_num.to_f * 100).round(1)
+      (number_correct / @turns.length.to_f * 100).round(1)
     end
   end
 
